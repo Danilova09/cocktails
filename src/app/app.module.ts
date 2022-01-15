@@ -10,6 +10,7 @@ import { CocktailItemComponent } from './cocktails/cocktail-item/cocktail-item.c
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidateImgUrlDirective } from './validate-img-url.directive';
+import { ModalComponent } from './ui/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ValidateImgUrlDirective } from './validate-img-url.directive';
     CocktailsComponent,
     CocktailItemComponent,
     ValidateImgUrlDirective,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

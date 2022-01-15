@@ -1,7 +1,30 @@
-<div class="card m-3" style="max-width: 270px; cursor: pointer;">
+<div class="card m-3" style="width: 260px; cursor: pointer;" (click)="openCocktailsDetails()">
   <img [src]="cocktail.imgUrl" [alt]="cocktail.name" class="card-img-top">
   <div class="card-body">
     <h5>{{ cocktail.name }}</h5>
     <p>{{ cocktail.description }}</p>
   </div>
 </div>
+
+<app-modal
+  title="Cocktail details"
+  [isOpen]="modalOpen"
+  (close)="closeCocktailsDetails()"
+>
+  <img [src]="cocktail.imgUrl" alt="" class="card-img-top" style="max-width: 200px;">
+  <div class="modal-body">
+    <h5>{{ cocktail.name }}</h5>
+    <p>Description: {{ cocktail.description }}</p>
+    <p>Ingredients: </p>
+    <p *ngFor="let ingredient of cocktail.ingredients; let i = index;">
+      <span>{{(i + 1) + '. ' + ingredient.ingredientName + ', ' + ingredient.ingredientAmount + ingredient.ingredientMeasure}}</span>
+    </p>
+    <p>Instructions: {{ cocktail.instructions }}</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            (click)="closeCocktailsDetails()"
+    >close
+    </button>
+  </div>
+</app-modal>

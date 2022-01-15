@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Cocktail } from '../../shared/cocktail.model';
 
 @Component({
@@ -6,11 +6,15 @@ import { Cocktail } from '../../shared/cocktail.model';
   templateUrl: './cocktail-item.component.html',
   styleUrls: ['./cocktail-item.component.css']
 })
-export class CocktailItemComponent implements OnInit {
+export class CocktailItemComponent {
   @Input() cocktail!: Cocktail;
-  constructor() { }
+  modalOpen = false;
 
-  ngOnInit(): void {
+  openCocktailsDetails() {
+    this.modalOpen = true;
   }
 
+  closeCocktailsDetails() {
+    this.modalOpen = false;
+  }
 }

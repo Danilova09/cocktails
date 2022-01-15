@@ -4,7 +4,7 @@
   <div class="text-center mt-5" *ngIf="fetchingCocktails">
     <span class="spinner-border" role="status"></span>
   </div>
-  <div class="cocktails-list d-flex flex-wrap justify-content-center align-items-sm-start" *ngIf="!fetchingCocktails">
+  <div class="cocktails-list d-flex flex-wrap justify-content-center align-items-center" *ngIf="!fetchingCocktails">
     <app-cocktail-item *ngFor="let cocktail of cocktails"
                        [cocktail]="cocktail"></app-cocktail-item>
   </div>
