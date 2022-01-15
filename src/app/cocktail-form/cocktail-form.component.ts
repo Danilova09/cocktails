@@ -1,16 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { imgUrlValidator } from '../validate-img-url.directive';
+import { CocktailService } from '../shared/cocktail.service';
+import { Cocktail } from '../shared/cocktail.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cocktail-form',
   templateUrl: './cocktail-form.component.html',
   styleUrls: ['./cocktail-form.component.css']
 })
-export class CocktailFormComponent implements OnInit {
+export class CocktailFormComponent implements OnInit, OnDestroy {
   cocktailForm!: FormGroup;
+  addingCocktail = false;
+  addingCocktailSubscription!: Subscription;
 
-  constructor() {
+  constructor(
+    private cocktailService: CocktailService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -28,6 +35,11 @@ export class CocktailFormComponent implements OnInit {
       ]),
       instructions: new FormControl('', Validators.required),
     });
+
+    this.addingCocktailSubscription = this.cocktailService.addingCocktail.subscribe((adding: boolean) => {
+      this.addingCocktail = adding;
+    })
+
   }
 
   getIngredients() {
@@ -64,8 +76,19 @@ export class CocktailFormComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.cocktailForm);
+    const newCocktail = new Cocktail(
+      'id',
+      this.cocktailForm.controls.name.value,
+      this.cocktailForm.controls.imgUrl.value,
+      this.cocktailForm.controls.type.value,
+      this.cocktailForm.controls.description.value,
+      this.cocktailForm.controls.ingredients.value,
+      this.cocktailForm.controls.instructions.value,
+    )
+    this.cocktailService.addCocktail(newCocktail);
   }
 
-
+  ngOnDestroy() {
+    this.addingCocktailSubscription.unsubscribe();
+  }
 }

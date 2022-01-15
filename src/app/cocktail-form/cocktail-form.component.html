@@ -116,6 +116,9 @@
     </div>
     <button class="btn btn-primary mt-3"
             [disabled]="cocktailForm.invalid"
-            type="submit">add</button>
+            type="submit">
+      <span class="spinner-border spinner-border-sm" *ngIf="addingCocktail"></span>
+      <span *ngIf="!addingCocktail">add</span>
+    </button>
   </form>
 </div>
