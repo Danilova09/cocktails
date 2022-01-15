@@ -1,1 +1,7 @@
-<p>cocktail-item works!</p>
+<div class="card m-3" style="max-width: 270px; cursor: pointer;">
+  <img [src]="cocktail.imgUrl" [alt]="cocktail.name" class="card-img-top">
+  <div class="card-body">
+    <h5>{{ cocktail.name }}</h5>
+    <p>{{ cocktail.description }}</p>
+  </div>
+</div>
