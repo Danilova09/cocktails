@@ -10,14 +10,14 @@ export const imgUrlValidator = (control: AbstractControl): ValidationErrors | nu
 };
 
 @Directive({
-  selector: '[appPassword]',
+  selector: '[appImgUrl]',
   providers: [{
     provide: NG_VALIDATORS,
     useExisting: ValidateImgUrlDirective,
     multi: true
   }]
 })
-export class  ValidateImgUrlDirective implements Validator {
+export class ValidateImgUrlDirective implements Validator {
   validate(control: AbstractControl): ValidationErrors | null {
     return imgUrlValidator(control);
   }

@@ -1,3 +1,22 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_icon {
+  font-family: 'Monoton', cursive;
+  font-size: 28px;
+  color: #17bef3;
+}
+
+.logo_text {
+  font-family: 'The Nautigal', cursive;
+  font-size: 20px;
+  margin-top: -10px;
+}
+
 .nav-link {
   border-bottom: 2px solid transparent;
 }
@@ -6,3 +25,4 @@
 .nav-link:hover {
   border-bottom: 2px solid #fff;
 }
+

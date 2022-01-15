@@ -10,6 +10,10 @@
              *ngIf="fieldHasError('name', 'required')">
         Enter cocktail's name!
       </small>
+      <small class="text-danger"
+             *ngIf="fieldHasError('name', 'string')">
+        Cocktail's name can not be number!
+      </small>
     </div>
     <div class="form-group">
       <label for="imgUrl">Image URL</label>
@@ -39,11 +43,11 @@
                value="Mocktail" formControlName="type"
         >
         <label class="form-check-label" for="Mocktail">Mocktail</label>
-        <small class="text-danger"
-               *ngIf="fieldHasError('type', 'required')">
-          Choose type!
-        </small>
       </div>
+      <small class="text-danger"
+             *ngIf="fieldHasError('type', 'required')">
+        Choose type!
+      </small>
     </div>
     <div class="form-group mt-4">
       <label for="description">Description</label>
@@ -65,11 +69,15 @@
                        *ngIf="ingredientsFieldHasError('ingredientName', 'required', i)">
                   Enter ingredient name!
                 </small>
+                <small class="text-danger mt-2"
+                       *ngIf="ingredientsFieldHasError('ingredientName', 'string', i)">
+                  Name can not be number!
+                </small>
               </div>
             </div>
             <div class="col-4 pl-0">
               <div class="d-flex flex-column">
-                <input type="number"
+                <input type="number" min="0"
                        [class]="ingredientsFieldHasError('ingredientAmount', 'required', i ) ? 'form-control is-invalid': 'form-control'"
                        placeholder="ingredient amount" formControlName="ingredientAmount">
                 <small class="text-danger mt-2"
@@ -78,7 +86,7 @@
                 </small>
                 <small class="text-danger mt-2"
                        *ngIf="ingredientsFieldHasError('ingredientAmount', 'min', i)">
-                  Quantity cannot be a negative number!
+                  Should be at least 1!
                 </small>
               </div>
             </div>
@@ -89,7 +97,9 @@
                         formControlName="ingredientMeasure">
                   <option value="" selected></option>
                   <option value="ml">ml</option>
-                  <option value="sh">sh</option>
+                  <option value="shot">shot</option>
+                  <option value="pinch">pinch</option>
+                  <option value="piece">piece</option>
                 </select>
                 <small class="text-danger"
                        *ngIf="ingredientsFieldHasError('ingredientMeasure', 'required', i)">

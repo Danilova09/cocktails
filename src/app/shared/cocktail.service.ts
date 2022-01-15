@@ -15,8 +15,7 @@ export class CocktailService {
 
   constructor(
     private http: HttpClient,
-  ) {
-  }
+  ) {}
 
   fetchCocktailsData() {
     this.fetchingCocktails.next(true);
@@ -36,8 +35,8 @@ export class CocktailService {
           );
         });
       })).subscribe((cocktails: Cocktail[]) => {
-        this.cocktails = cocktails;
-        this.cocktailsChange.next(cocktails);
+      this.cocktails = cocktails;
+      this.cocktailsChange.next(cocktails);
     }, () => {
       this.fetchingCocktails.next(false);
     });
@@ -63,5 +62,4 @@ export class CocktailService {
         this.fetchCocktailsData();
       });
   }
-
 }

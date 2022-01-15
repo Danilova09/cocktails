@@ -13,9 +13,10 @@ export class CocktailsComponent implements OnInit, OnDestroy {
   fetchingCocktails = false;
   cocktailsSubscription!: Subscription;
   fetchingCocktailsSubscription!: Subscription;
+
   constructor(
     private cocktailService: CocktailService,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.cocktailsSubscription = this.cocktailService.cocktailsChange.subscribe((cocktails: Cocktail[]) => {

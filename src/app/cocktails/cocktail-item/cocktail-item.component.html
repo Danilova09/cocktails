@@ -1,25 +1,25 @@
 <div class="card m-3" style="width: 260px; cursor: pointer;" (click)="openCocktailsDetails()">
-  <img [src]="cocktail.imgUrl" [alt]="cocktail.name" class="card-img-top">
+  <img [src]="cocktail.imgUrl" [alt]="cocktail.name" class="card-img-top" style="height: 200px;">
   <div class="card-body">
     <h5>{{ cocktail.name }}</h5>
-    <p>{{ cocktail.description }}</p>
+    <p>Type: {{ cocktail.type }}</p>
   </div>
 </div>
 
 <app-modal
-  title="Cocktail details"
+  [title]="cocktail.name"
   [isOpen]="modalOpen"
   (close)="closeCocktailsDetails()"
 >
-  <img [src]="cocktail.imgUrl" alt="" class="card-img-top" style="max-width: 200px;">
+  <img [src]="cocktail.imgUrl" [alt]="cocktail.name" class="img_card">
   <div class="modal-body">
-    <h5>{{ cocktail.name }}</h5>
-    <p>Description: {{ cocktail.description }}</p>
-    <p>Ingredients: </p>
+    <p><strong>Type</strong>: {{ cocktail.type }}</p>
+    <p><strong>Description:</strong> {{ cocktail.description }}</p>
+    <p><strong>Ingredients:</strong></p>
     <p *ngFor="let ingredient of cocktail.ingredients; let i = index;">
       <span>{{(i + 1) + '. ' + ingredient.ingredientName + ', ' + ingredient.ingredientAmount + ingredient.ingredientMeasure}}</span>
     </p>
-    <p>Instructions: {{ cocktail.instructions }}</p>
+    <p><strong>Instructions:</strong> {{ cocktail.instructions }}</p>
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary"

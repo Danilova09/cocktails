@@ -4,6 +4,7 @@ import { imgUrlValidator } from '../validate-img-url.directive';
 import { CocktailService } from '../shared/cocktail.service';
 import { Cocktail } from '../shared/cocktail.model';
 import { Subscription } from 'rxjs';
+import { stringValidator } from '../validate-string.directive';
 
 @Component({
   selector: 'app-cocktail-form',
@@ -17,19 +18,18 @@ export class CocktailFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private cocktailService: CocktailService,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.cocktailForm = new FormGroup({
-      name: new FormControl('', Validators.required),
+      name: new FormControl('', [Validators.required, stringValidator]),
       imgUrl: new FormControl('', [Validators.required, imgUrlValidator]),
       type: new FormControl('', Validators.required),
       description: new FormControl(''),
       ingredients: new FormArray([
         new FormGroup({
-          ingredientName: new FormControl('', Validators.required),
-          ingredientAmount: new FormControl('', [Validators.required, Validators.min(0)]),
+          ingredientName: new FormControl('', [Validators.required, stringValidator]),
+          ingredientAmount: new FormControl('', [Validators.required, Validators.min(1)]),
           ingredientMeasure: new FormControl('', Validators.required),
         })
       ]),
@@ -38,8 +38,7 @@ export class CocktailFormComponent implements OnInit, OnDestroy {
 
     this.addingCocktailSubscription = this.cocktailService.addingCocktail.subscribe((adding: boolean) => {
       this.addingCocktail = adding;
-    })
-
+    });
   }
 
   getIngredients() {
@@ -74,7 +73,6 @@ export class CocktailFormComponent implements OnInit, OnDestroy {
     ingredientsArray.removeAt(i);
   }
 
-
   onSubmit() {
     const newCocktail = new Cocktail(
       'id',
@@ -84,7 +82,7 @@ export class CocktailFormComponent implements OnInit, OnDestroy {
       this.cocktailForm.controls.description.value,
       this.cocktailForm.controls.ingredients.value,
       this.cocktailForm.controls.instructions.value,
-    )
+    );
     this.cocktailService.addCocktail(newCocktail);
   }
 

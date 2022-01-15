@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidateImgUrlDirective } from './validate-img-url.directive';
 import { ModalComponent } from './ui/modal/modal.component';
+import { ValidateStringDirective } from './validate-string.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ModalComponent } from './ui/modal/modal.component';
     CocktailsComponent,
     CocktailItemComponent,
     ValidateImgUrlDirective,
+    ValidateStringDirective,
     ModalComponent,
   ],
   imports: [
@@ -32,4 +34,4 @@ import { ModalComponent } from './ui/modal/modal.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
