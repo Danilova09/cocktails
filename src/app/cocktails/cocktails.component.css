@@ -1,0 +1,6 @@
+.cocktails-block {
+  display: block;
+  width: 900px;
+  margin: 80px auto;
+  border: 1px solid red;
+}

@@ -1,1 +1,11 @@
-<p>cocktails works!</p>
+<div class="cocktails-block">
+  <h5 class="text-center">Cocktails</h5>
+
+  <div class="text-center mt-5" *ngIf="fetchingCocktails">
+    <span class="spinner-border" role="status"></span>
+  </div>
+  <div class="cocktails-list" *ngIf="!fetchingCocktails">
+    <app-cocktail-item *ngFor="let cocktail of cocktails"
+    [cocktail]="cocktail"></app-cocktail-item>
+  </div>
+</div>
