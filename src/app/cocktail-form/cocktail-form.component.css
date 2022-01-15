@@ -3,3 +3,8 @@
   width: 700px;
   margin: 90px auto;
 }
+
+input.ng-touched.ng-invalid {
+  border: 1px solid #dc3545;
+}
+

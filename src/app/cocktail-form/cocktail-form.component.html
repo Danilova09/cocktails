@@ -3,25 +3,46 @@
   <form class="cocktail-form mt-5" (ngSubmit)="onSubmit()" [formGroup]="cocktailForm">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name"
+      <input type="text" id="name"
+             [class]="fieldHasError('name', 'required') ? 'form-control is-invalid': 'form-control'"
              formControlName="name">
+      <small class="text-danger"
+             *ngIf="fieldHasError('name', 'required')">
+        Enter cocktail's name!
+      </small>
     </div>
     <div class="form-group">
       <label for="imgUrl">Image URL</label>
-      <input type="text" class="form-control" id="imgUrl"
+      <input type="text"
+             [class]="fieldHasError('imgUrl', 'required') ? 'form-control is-invalid': 'form-control'"
+             id="imgUrl"
              formControlName="imgUrl">
+      <small class="text-danger"
+             *ngIf="fieldHasError('imgUrl', 'required')">
+        Enter image URL!
+      </small>
+      <small class="text-danger"
+             *ngIf="fieldHasError('imgUrl', 'imgUrl')">
+        Enter valid image URL!
+      </small>
     </div>
     <div class="form-group">
       <p>Cocktail type</p>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="type" id="alcoholCocktail"
-               value="Alcohol Cocktail" formControlName="type">
+               value="Alcohol Cocktail" formControlName="type"
+        >
         <label class="form-check-label" for="alcoholCocktail">Alcohol cocktail</label>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="type" id="Mocktail"
-               value="Mocktail" formControlName="type">
+               value="Mocktail" formControlName="type"
+        >
         <label class="form-check-label" for="Mocktail">Mocktail</label>
+        <small class="text-danger"
+               *ngIf="fieldHasError('type', 'required')">
+          Choose type!
+        </small>
       </div>
     </div>
     <div class="form-group mt-4">
@@ -33,24 +54,68 @@
       <button class="btn btn-success" type="button" (click)="addIngredient()">add ingredient</button>
       <div class="ingredients-list" *ngFor="let ingredient of getIngredients(); let i = index">
         <div class="form-group" [formGroupName]="i">
-          <div class="form-inline mt-3">
-            <input type="text" class="form-control"
-                   placeholder="ingredient name" formControlName="ingredientName">
-            <input type="number" class="form-control ml-2"
-                   placeholder="ingredient amount" formControlName="ingredientAmount">
-            <select name="" id="amountSelect" class="form-control ml-2" formControlName="ingredientMeasure">
-              <option value="ml" selected>ml</option>
-              <option value="sh">sh</option>
-            </select>
-            <button class="btn btn-danger ml-3" type="button" (click)="deleteIngredient(i)">delete</button>
+          <div class="form-inline mt-3 row justify-content-center align-items-baseline">
+            <div class="col-4 pl-0">
+              <div class="form-group d-flex flex-column">
+                <input type="text"
+                       placeholder="ingredient name"
+                       [class]="ingredientsFieldHasError('ingredientName', 'required', i ) ? 'form-control is-invalid': 'form-control'"
+                       formControlName="ingredientName">
+                <small class="text-danger mt-2"
+                       *ngIf="ingredientsFieldHasError('ingredientName', 'required', i)">
+                  Enter ingredient name!
+                </small>
+              </div>
+            </div>
+            <div class="col-4 pl-0">
+              <div class="d-flex flex-column">
+                <input type="number"
+                       [class]="ingredientsFieldHasError('ingredientAmount', 'required', i ) ? 'form-control is-invalid': 'form-control'"
+                       placeholder="ingredient amount" formControlName="ingredientAmount">
+                <small class="text-danger mt-2"
+                       *ngIf="ingredientsFieldHasError('ingredientAmount', 'required', i)">
+                  Enter amount!
+                </small>
+                <small class="text-danger mt-2"
+                       *ngIf="ingredientsFieldHasError('ingredientAmount', 'min', i)">
+                  Quantity cannot be a negative number!
+                </small>
+              </div>
+            </div>
+            <div class="col-2 pl-0">
+              <div class="d-flex flex-column">
+                <select name="" id="amountSelect"
+                        [class]="ingredientsFieldHasError('ingredientMeasure', 'required', i ) ? 'form-control is-invalid': 'form-control'"
+                        formControlName="ingredientMeasure">
+                  <option value="" selected></option>
+                  <option value="ml">ml</option>
+                  <option value="sh">sh</option>
+                </select>
+                <small class="text-danger"
+                       *ngIf="ingredientsFieldHasError('ingredientMeasure', 'required', i)">
+                  Choose measure!
+                </small>
+              </div>
+            </div>
+            <div class="col-2 pl-0">
+              <button class="btn btn-danger ml-3" type="button" (click)="deleteIngredient(i)">delete</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="form-group mt-5">
       <label for="instructions">Instructions</label>
-      <textarea class="form-control" id="instructions" formControlName="instructions"></textarea>
+      <textarea
+        [class]="fieldHasError('instructions', 'required') ? 'form-control is-invalid': 'form-control'"
+        id="instructions" formControlName="instructions"></textarea>
+      <small class="text-danger"
+             *ngIf="fieldHasError('instructions', 'required')">
+        Enter instructions!
+      </small>
     </div>
-    <button class="btn btn-primary mt-3" type="submit">add</button>
+    <button class="btn btn-primary mt-3"
+            [disabled]="cocktailForm.invalid"
+            type="submit">add</button>
   </form>
 </div>
