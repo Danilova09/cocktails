@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { CocktailFormComponent } from './cocktail-form/cocktail-form.component';
 import { CocktailsComponent } from './cocktails/cocktails.component';
 import { CocktailItemComponent } from './cocktails/cocktail-item/cocktail-item.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,10 @@ import { CocktailItemComponent } from './cocktails/cocktail-item/cocktail-item.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

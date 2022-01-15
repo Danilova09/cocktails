@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccb1d5d2-73dc-4619-b860-5c36a2edbbbb" name="Changes" comment="Generation of main components cocktail-form, cocktails, cocktail-item. Setting up routing">
+    <list default="true" id="ccb1d5d2-73dc-4619-b860-5c36a2edbbbb" name="Changes" comment="Adding styles to cocktail-form component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cocktail-form/cocktail-form.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cocktail-form/cocktail-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/cocktail-form/cocktail-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cocktail-form/cocktail-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/cocktail-form/cocktail-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cocktail-form/cocktail-form.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,7 @@
       <updated>1642224921078</updated>
       <workItem from="1642224930431" duration="41000" />
       <workItem from="1642225005474" duration="219000" />
-      <workItem from="1642225273943" duration="2263000" />
+      <workItem from="1642225273943" duration="4454000" />
     </task>
     <task id="LOCAL-00001" summary="Setting up project">
       <created>1642225200828</created>
@@ -91,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642226369844</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Adding styles to cocktail-form component">
+      <created>1642227898273</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1642227898273</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +121,7 @@
     <MESSAGE value="Setting up project" />
     <MESSAGE value="Adding header styles" />
     <MESSAGE value="Generation of main components cocktail-form, cocktails, cocktail-item. Setting up routing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generation of main components cocktail-form, cocktails, cocktail-item. Setting up routing" />
+    <MESSAGE value="Adding styles to cocktail-form component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding styles to cocktail-form component" />
   </component>
 </project>
