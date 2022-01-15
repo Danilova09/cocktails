@@ -3,10 +3,17 @@
     <a class="navbar-brand" href="#">Cocktails party</a>
     <ul class="nav justify-content-end">
       <li class="nav-item">
-        <a class="nav-link active-link text-light" href="/">Home</a>
+        <a class="nav-link text-light"
+           routerLink="/"
+           routerLinkActive="active-link"
+           [routerLinkActiveOptions]="{exact: true}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light text-capitalize" href="#">new cocktail</a>
+        <a class="nav-link text-light text-capitalize"
+           routerLink="new-cocktail"
+           routerLinkActive="active-link"
+           [routerLinkActiveOptions]="{exact: true}"
+        >new cocktail</a>
       </li>
     </ul>
   </nav>
