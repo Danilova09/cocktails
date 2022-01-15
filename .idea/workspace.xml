@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccb1d5d2-73dc-4619-b860-5c36a2edbbbb" name="Changes" comment="Adding validator of cocktail's name, code refactoring">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ccb1d5d2-73dc-4619-b860-5c36a2edbbbb" name="Changes" comment="Changing fetchCocktailsData method in service" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +65,7 @@
       <workItem from="1642224930431" duration="41000" />
       <workItem from="1642225005474" duration="219000" />
       <workItem from="1642225273943" duration="20754000" />
+      <workItem from="1642249698890" duration="337000" />
     </task>
     <task id="LOCAL-00001" summary="Setting up project">
       <created>1642225200828</created>
@@ -145,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642249097050</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Changing fetchCocktailsData method in service">
+      <created>1642249791503</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1642249791503</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +181,7 @@
     <MESSAGE value="Adding styles to components cocktails, cocktail-item" />
     <MESSAGE value="Adding styles to modal component, showing details of cocktail." />
     <MESSAGE value="Adding validator of cocktail's name, code refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding validator of cocktail's name, code refactoring" />
+    <MESSAGE value="Changing fetchCocktailsData method in service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing fetchCocktailsData method in service" />
   </component>
 </project>

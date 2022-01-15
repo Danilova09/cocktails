@@ -21,10 +21,10 @@ export class CocktailService {
     this.fetchingCocktails.next(true);
     this.http.get<{ [id: string]: Cocktail }>('https://cocktails-59fbc-default-rtdb.firebaseio.com/cocktails.json')
       .pipe(map((result) => {
+        this.fetchingCocktails.next(false);
         if (!result) {
           return [];
         }
-        this.fetchingCocktails.next(false);
         return Object.keys(result).map(id => {
           const cocktailData = result[id];
           return new Cocktail(
